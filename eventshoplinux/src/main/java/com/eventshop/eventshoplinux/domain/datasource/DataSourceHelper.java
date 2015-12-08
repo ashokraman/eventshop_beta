@@ -24,6 +24,8 @@ import com.eventshop.eventshoplinux.domain.datasource.simulator.GaussianParamete
 import com.eventshop.eventshoplinux.util.commonUtil.Config;
 import com.eventshop.eventshoplinux.util.datasourceUtil.DataProcess;
 import com.eventshop.eventshoplinux.util.datasourceUtil.simulator.Simulator.Kernel;
+//import com.eventshop.eventshoplinux.util.datasourceUtil.wrapper.ElasticSearchWrapper;
+import com.eventshop.eventshoplinux.util.datasourceUtil.wrapper.ElasticSearchWrapper;
 import com.eventshop.eventshoplinux.util.datasourceUtil.wrapper.FlickrWrapper;
 import com.eventshop.eventshoplinux.util.datasourceUtil.wrapper.SimDataWrapper;
 import com.eventshop.eventshoplinux.util.datasourceUtil.wrapper.TwitterWrapper;
@@ -74,6 +76,16 @@ public class DataSourceHelper {
 				String[] words = new String[src.bagOfWords.size()];
 				src.bagOfWords.toArray(words);
 				((TwitterWrapper) wrapper).setBagOfWords(words);
+			}
+			else if(src.supportedWrapper.equals(ELASTICSEARCH))
+			{
+				log.info("before creation elastic search");
+				wrapper = new ElasticSearchWrapper(src.url, src.srcTheme, src.initParam, true);
+				log.info("Elastic Search wrapper created");
+				
+				String[] words = new String[src.bagOfWords.size()];
+				src.bagOfWords.toArray(words);
+				((ElasticSearchWrapper) wrapper).setBagOfWords(words);
 			}
 			else if(src.supportedWrapper.equals(FLICKER))
 			{
