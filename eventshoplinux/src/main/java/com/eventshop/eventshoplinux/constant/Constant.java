@@ -121,6 +121,7 @@ public class Constant {
 	public static final String CONTEXT = "context";
 	public static final String TWITTER = "Twitter";
 	public static final String FLICKER = "Flickr";
+	public static final String ELASTICSEARCH = "ELASTICSEARCH";
 	public static final String SIM = "sim";
 	public static final String DS_PATH = "ds" ;
 	public static final String TRANS_MATRX_NWLINE = "tranMat:\n " ;
