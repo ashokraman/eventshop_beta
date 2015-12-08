@@ -49,24 +49,24 @@ public class TwitterWrapper extends Wrapper
 {
 	
 	protected static Log log=LogFactory.getLog(TwitterWrapper.class);        
-	private String[] bagOfWords;
+	protected String[] bagOfWords;
 
-	private long[][] sinceID;
+	protected long[][] sinceID;
 	private Twitter twitter;
 
-	private LinkedBlockingQueue<STTPoint> ls;
+	protected LinkedBlockingQueue<STTPoint> ls;
 
-	private boolean isRunning = false;
+	protected boolean isRunning = false;
 
 	boolean [][] isPopulated;// = new boolean [13][30];
 	//int [][] numTweetsLoc = new int[13][30];
 	
 	// For storing tweets into MySQL
-	private boolean saveTweets;
+	protected boolean saveTweets;
 	private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	private Connection conn;
-	private String tableName;
-	private String theme;
+	protected Connection conn;
+	protected String tableName;
+
 	
 	public TwitterWrapper(String url, String theme, FrameParameters params, boolean saveTweets)
 	{
